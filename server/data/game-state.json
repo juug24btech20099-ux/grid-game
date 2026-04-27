@@ -1,0 +1,15 @@
+{
+  "phase": "setup",
+  "currentRound": 0,
+  "startedAt": null,
+  "roundStartedAt": null,
+  "endedAt": null,
+  "roundDurationMinutes": 40,
+  "autoEndOnWinner": true,
+  "leaderboardVisible": true,
+  "teams": [],
+  "announcements": [],
+  "roundWinners": {},
+  "globalHack": null,
+  "adminCode": "ADMIN2025"
+}
