@@ -42,6 +42,9 @@ npm run dev
 
 ## Deployment
 
+### Deploy on Railway
+If you want to deploy the app on Railway, deploy the Node.js backend from the `server/` folder.
+
 ### Deploy Server → Railway
 1. Push repo to GitHub
 2. Go to [railway.app](https://railway.app) → New Project → Deploy from GitHub
