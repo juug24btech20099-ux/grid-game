@@ -222,7 +222,7 @@ function CodeDiff({ lines = [] }) {
 }
 
 // ── Main QuestionPanel ────────────────────────────────────────────────────────
-export default function QuestionPanel({ question, onSubmit, lastResult, disabled, tokens = 12, isFrozen = false, frozenUntil = null }) {
+export default function QuestionPanel({ question, onSubmit, lastResult, disabled, tokens = 30, isFrozen = false, frozenUntil = null }) {
   const [selected, setSelected]         = useState(null);
   const [freezeCountdown, setCountdown] = useState(0);
 

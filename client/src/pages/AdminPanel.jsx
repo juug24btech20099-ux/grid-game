@@ -47,7 +47,7 @@ export default function AdminPanel() {
 
   const phase  = gameState?.phase  || 'setup';
   const round  = gameState?.currentRound || 0;
-  const total  = gameState?.totalRounds  || 3;
+  const total  = gameState?.totalRounds  || 2;
   const teams  = gameState?.teams        || [];
   const anns   = gameState?.announcements || [];
   const hack   = gameState?.globalHack;
@@ -175,7 +175,7 @@ export default function AdminPanel() {
               </div>
 
               <div style={S.tcStats}>
-                {[['SCORE',team.totalScore||0,'var(--gold)'],['LINES',team.linesCompleted,team.color],['TOKENS',team.tokens??12,(team.tokens??12)<=3?'#ef4444':'#22c55e'],['TIME',formatTime(team.elapsedSeconds||0),'var(--text-dim)']].map(([l,v,c])=>(
+                {[['SCORE',team.totalScore||0,'var(--gold)'],['LINES',team.linesCompleted,team.color],['TOKENS',team.tokens??30,(team.tokens??30)<=3?'#ef4444':'#22c55e'],['TIME',formatTime(team.elapsedSeconds||0),'var(--text-dim)']].map(([l,v,c])=>(
                   <div key={l} style={S.stat}><span style={{ ...S.statV, color:c }}>{v}</span><span style={S.statL}>{l}</span></div>
                 ))}
               </div>

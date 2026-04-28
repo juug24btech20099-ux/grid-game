@@ -164,7 +164,7 @@ export default function Leaderboard() {
   const visible = gameState.leaderboardVisible;
   const phase   = gameState.phase;
   const round   = gameState.currentRound || 0;
-  const total   = gameState.totalRounds || 3;
+  const total   = gameState.totalRounds || 2;
 
   if (!visible) return <TitleScreen phase={phase} round={round} connected={connected} />;
 

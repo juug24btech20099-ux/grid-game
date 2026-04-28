@@ -102,7 +102,7 @@ export default function PlayerDashboard() {
   const team        = gameState?.teams?.find(t => t.id === teamId);
   const phase       = gameState?.phase  || 'setup';
   const round       = gameState?.currentRound || 0;
-  const totalRounds = gameState?.totalRounds  || 3;
+  const totalRounds = gameState?.totalRounds  || 2;
   const isFrozen    = team?.isFrozen || false;
   const otherTeams  = (gameState?.teams || []).filter(t => t.id !== teamId);
 
@@ -133,7 +133,7 @@ export default function PlayerDashboard() {
             </div>
           )}
           <Stat val={`${team?.linesCompleted || 0}/5`}   label="LINES"  />
-          <Stat val={team?.tokens ?? 12}                  label="TOKENS" color={(team?.tokens ?? 12) <= 3 ? '#ef4444' : 'var(--gold)'} />
+          <Stat val={team?.tokens ?? 30}                  label="TOKENS" color={(team?.tokens ?? 30) <= 3 ? '#ef4444' : 'var(--gold)'} />
           <Stat val={team?.totalScore || 0}               label="SCORE"  />
           <Timer seconds={team?.elapsedSeconds || 0} label="TIME" />
           <div style={{ width:7, height:7, borderRadius:'50%', background: connected ? '#22c55e' : '#ef4444', boxShadow:'0 0 7px currentColor' }} />
@@ -156,7 +156,7 @@ export default function PlayerDashboard() {
       )}
 
       {/* ── No-tokens warning ─────────────────────────────────────────────── */}
-      {phase === 'round_active' && (team?.tokens ?? 12) === 0 && (
+      {phase === 'round_active' && (team?.tokens ?? 30) === 0 && (
         <div style={{ ...S.banner, background:'rgba(239,68,68,0.1)', borderColor:'rgba(239,68,68,0.35)', color:'#ef4444' }}>
           🪙 No tokens left this round! Wait for the next round or solve a Global Hack event.
         </div>
@@ -186,15 +186,15 @@ export default function PlayerDashboard() {
         <section style={S.qSection}>
           <div style={S.secHdr}>
             <span style={S.secLabel}>CHALLENGE</span>
-            {question && <span style={S.secMeta}>#{(team?.currentQuestionIndex || 0) + 1} of 30 · Round {round}</span>}
+            {question && <span style={S.secMeta}>#{(team?.currentQuestionIndex || 0) + 1} of {(team?.questionDeck?.length || 25)} · Round {round}</span>}
           </div>
           <div style={S.qContent}>
             <QuestionPanel
               question={question}
               onSubmit={handleSubmit}
               lastResult={lastResult}
-              disabled={submitting || phase !== 'round_active' || (team?.tokens ?? 12) === 0}
-              tokens={team?.tokens ?? 12}
+              disabled={submitting || phase !== 'round_active' || (team?.tokens ?? 30) === 0}
+              tokens={team?.tokens ?? 30}
               isFrozen={isFrozen}
               frozenUntil={team?.frozenUntil}
             />
